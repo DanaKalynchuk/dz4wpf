@@ -1,0 +1,59 @@
+﻿<Window x:Class="pr3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pr3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="458.8" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="3" Orientation="Horizontal" 
+                    HorizontalAlignment="Left">
+            <Button x:Name="Open"  Margin="3"
+                    Click="Open_Click">Open</Button>
+
+            <Button x:Name="b"  Margin="3" Click="b_Click" />
+            <Button x:Name="Pausa"  Margin="3" Click="Pausa_Click"
+                    />
+            <Button x:Name="t"  Margin="3" Click="t_Click"
+                    />
+
+            <GroupBox Header="Spead" Padding="10" >
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,-24">
+                    <CheckBox Click="x05_Click" x:Name="x05">0,5x</CheckBox>
+                    <CheckBox Click="x1_Click" x:Name="x1">1x</CheckBox>
+                    <CheckBox Click="x125_Click" x:Name="x125">1,25x</CheckBox>
+                    <CheckBox Click="x15_Click" x:Name="x15">1,5x</CheckBox>
+                    <CheckBox Click="x175_Click" x:Name="x175">1,75x</CheckBox>
+                    <CheckBox Click="x2_Click" x:Name="x2">2x</CheckBox>
+
+                </StackPanel>
+            </GroupBox>
+           
+        </StackPanel>
+        <Image x:Name="ImageAudio" Grid.Row="1" Margin="10"
+                Stretch="Fill"  />
+
+        <MediaElement x:Name="Player" Grid.Row="1" Margin="10"
+                      Stretch="Fill" MediaOpened="Player_MediaOpened"
+                      LoadedBehavior="Manual"  MediaEnded="Player_MediaEnded_1"/>
+        <TextBlock Grid.Row="2"  x:Name="Time"/>
+     
+            <Expander Grid.Column="1" Grid.RowSpan="3" Header="History" >
+            <ListBox x:Name="list" SelectionChanged="list_SelectionChanged" >
+                
+            </ListBox>
+            </Expander>
+        
+    </Grid>
+</Window>
